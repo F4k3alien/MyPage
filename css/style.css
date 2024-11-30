@@ -1,0 +1,141 @@
+
+/* Estilo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('../images/back.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1400px; /* Aumentado el ancho máximo */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 150px;
+}
+
+/* Tarjetas */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px; /* Bordes más redondeados */
+    padding: 60px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Más ancha */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem; /* Texto más grande */
+}
+
+/* Botones */
+.answer-btn, .restart-btn, .back-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 15px 30px;
+    font-size: 1.6rem;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.answer-btn {
+    background: #e13636;
+}
+
+.answer-btn:hover {
+    background: #e6923e;
+    transform: scale(1.1);
+}
+
+.restart-btn {
+    background: #5cb85c;
+}
+
+.restart-btn:hover {
+    background: #4cae4c;
+    transform: scale(1.1);
+}
+
+.back-btn {
+    background: #007bff;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Animaciones: confeti y caritas */
+@keyframes confetti {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes emojis {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.confetti-piece, .emoji {
+    position: absolute;
+    top: -50px;
+    font-size: 2rem;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.confetti-piece {
+    animation-name: confetti;
+}
+
+.emoji {
+    animation-name: emojis;
+}
+
+/* Contenedor de notificaciones */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+}
+
+.notification.hide {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+.notification.success {
+    background: #4caf50;
+}
+
+.notification.error {
+    background: #f44336;
+}
+
+.notification.info {
+    background: #2196f3;
+}
